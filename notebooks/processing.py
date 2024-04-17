@@ -26,7 +26,8 @@ def loader(path_to_data):
     geo_df = gpd.GeoDataFrame(df, 
                             crs=crs, 
                             geometry=geometry)
-    geo_df.head()
+    
+    print('GeoDataFrame loaded.')
 
     return geo_df
 
