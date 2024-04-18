@@ -60,7 +60,7 @@ def get_closest(df, river_points, nn=5):
         # Find the closest points in one_day_data to each point in river_points
         for true_coord in river_points:
             true_point = Point(true_coord)
-            _, ind = tree.query([[true_point.x, true_point.y]], k=nn)  # Find 5 NNs --> 1 is too few
+            _, ind = tree.query([[true_point.x, true_point.y]], k=nn)  # Find NNs --> 1 is too few
 
             if len(ind) > 0:
                 # Choose closest point among 5 NNs
