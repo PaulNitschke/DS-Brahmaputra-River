@@ -7,6 +7,9 @@ from shapely.geometry import Point, Polygon
 from sklearn.neighbors import BallTree
 
 
+## for geo_exploration:
+
+
 def loader(path_to_data):
     """Load the data, get geometry and return a GeoDataFrame."""
 
@@ -99,3 +102,18 @@ def remove_outliers(df):
     df = df[~df.geometry.within(incorrect_region.unary_union)]
 
     return df
+
+
+## for width_depth_generation:
+
+
+# Function to filter points based on longitude and latitude values
+def filter_points(geometry):
+    # Extract longitude and latitude from the Point geometry
+    longitude, latitude = geometry.x, geometry.y
+    
+    # Check if longitude is between 82 and 96 and latitude is between 22 and 31
+    if 82 <= longitude <= 96 and 22 <= latitude <= 31:
+        return True
+    else:
+        return False
